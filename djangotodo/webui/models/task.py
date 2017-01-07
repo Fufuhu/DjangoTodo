@@ -10,5 +10,3 @@ class Task(models.Model):
     endTime = models.DateTimeField()
     memo = models.CharField(max_length=200)
 
-    class Meta:
-        app_label = 'webui'
