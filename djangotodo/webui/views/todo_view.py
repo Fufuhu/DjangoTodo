@@ -16,7 +16,7 @@ class TodoView(View):
         modify the existing task.
         """
         tasks = Task.objects.all()
-        return render(request, 'webui/todo_create.html', {'tasks': tasks})
+        return render(request, 'webui/todo.html', {'tasks': tasks})
 
 class TodoListView(View):
     """
