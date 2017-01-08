@@ -9,5 +9,32 @@ Todo Create
 {% endblock extrahead %}
 
 {% block content %}
-<h1>Todo Create!</h1>
+<h1>タスク管理</h1>
+<button>タスク追加</button>
+<br/>
+
+
+<table>
+    <thead>
+        <th>タスク名</th>
+        <th>開始時刻</th>
+        <th>終了時刻</th>
+        <th>ステータス</th>
+        <th>メモ</th>
+        <th>操作</th>
+    </thead>
+{% for task in tasks %}
+    <tr>
+        <td>{{ task.name }}</td>
+        <td>{{ task.startTime }}</td>
+        <td>{{ task.endTime }}</td>
+        <td>{{ task.status }}</td>
+        <td>{{ task.memo }}</td>
+        <td>
+            <button>変更</button>
+            <button>削除</button>
+        </td>
+    </tr>
+{% endfor%}
+</table>
 {% endblock content %}
