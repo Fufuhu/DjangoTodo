@@ -15,7 +15,8 @@ class TodoView(View):
         create the new task. When there is a task_id,
         modify the existing task.
         """
-        return render(request, 'webui/todo_create.html')
+        tasks = Task.objects.all()
+        return render(request, 'webui/todo_create.html', {'tasks': tasks})
 
 class TodoListView(View):
     """
