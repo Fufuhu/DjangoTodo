@@ -4,6 +4,19 @@ from django.http import HttpResponse
 
 from webui.models.task import Task
 
+class TodoView(View):
+    """
+    Set up, create, modify the task.
+    """
+    def get(self, request):
+        """
+        Create or modify the task.
+        When there were no request_id setting,
+        create the new task. When there is a task_id,
+        modify the existing task.
+        """
+        return render(request, 'webui/todo_create.html')
+
 class TodoListView(View):
     """
     List up the list of Todo
