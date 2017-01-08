@@ -11,17 +11,16 @@ Todo Create
 {% block content %}
 <h1>タスク管理</h1>
 
-<form action="{% url 'webui:todo' %}" method='post'>
+<form action="{% url 'webui:todo' %}" method='post' class="form-horizontal" role="form">
     {% csrf_token %}
     {{ form | bootstrap_horizontal }}
-    <button type="submit">追加</button>
+    <div class="col-sm-offset-1 col-sm-11">
+        <button type="submit" class="btn btn-primary">追加</button>
+    </div>
 </form>
 
-
-<br/>
-
-
-<table>
+<h2>タスク一覧</h2>
+<table class="table table-striped table-bordered">
     <thead>
         <th>タスク名</th>
         <th>開始時刻</th>
