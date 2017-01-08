@@ -10,4 +10,11 @@ Todo List
 
 {% block content %}
 <h1>Todo List</h1>
+<thead><th></th><th></th><th></th></thead>
+<table>
+{% for task in tasks %}
+
+{{ task.name }}
+{% endfor%}
+</table>
 {% endblock content %}
