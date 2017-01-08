@@ -1,5 +1,8 @@
+"""
+Setting up the url patterns for routing requests
+"""
 from django.conf.urls import url
-from webui.views.todo_view import TodoView,TodoListView
+from webui.views.todo_view import TodoView, TodoListView
 
 
 urlpatterns = [
