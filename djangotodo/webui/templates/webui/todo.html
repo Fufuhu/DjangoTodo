@@ -10,7 +10,7 @@ Todo Create
 
 {% block content %}
 <h1>タスク管理</h1>
-
+<h2>タスク追加</h2>
 <form action="{% url 'webui:todo' %}" method='post' class="form-horizontal">
     {% csrf_token %}
     {{ form | bootstrap_horizontal }}
