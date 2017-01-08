@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from webui.models.task import Task
+from webui.forms.task_form import TaskCreateForm
 
 class TodoView(View):
     """
@@ -16,7 +17,11 @@ class TodoView(View):
         modify the existing task.
         """
         tasks = Task.objects.all()
-        return render(request, 'webui/todo.html', {'tasks': tasks})
+
+        # Taskを新規作成するためのフォームを追加
+        form = TaskCreateForm(instance=Task)
+        # return render(request, 'webui/todo.html', {'tasks': tasks})
+        return render(request, 'webui/todo.html', dict(form=form, tasks=tasks))
 
     def post(self, request):
         """
