@@ -8,6 +8,8 @@ class TodoListView(View):
     """
     def get(self, request):
         """Return the list of to do(plan)"""
-        return HttpResponse('Todoの一覧')
+        # return HttpResponse('Todoの一覧')
+        return render(request, 'webui/todo_list.html')
+
 
 
