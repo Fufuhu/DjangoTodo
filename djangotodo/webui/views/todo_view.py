@@ -28,9 +28,18 @@ class TodoView(View):
         """
         Create the new task.
         """
-        tasks = Task.objects.all()
         # Insert the process to create task here.
-        return render(request, 'webui/todo.html', {'tasks': tasks})
+        print(str(request.POST['name']))
+        name = request.POST['name']
+        memo = request.POST['memo']
+        task = Task.create(name, memo)
+        task.save()
+
+        # 一覧表示用のデータを取得
+        tasks = Task.objects.all()
+        # Taskを新規作成するためのフォームを追加
+        form = TaskCreateForm(instance=task)
+        return render(request, 'webui/todo.html', dict(form=form, tasks=tasks))
 
 class TodoListView(View):
     """
