@@ -11,7 +11,7 @@ Todo Create
 {% block content %}
 <h1>タスク管理</h1>
 
-<form action="{% url 'webui:todo' %}" method='post' class="form-horizontal" role="form">
+<form action="{% url 'webui:todo' %}" method='post' class="form-horizontal">
     {% csrf_token %}
     {{ form | bootstrap_horizontal }}
     <div class="col-sm-offset-1 col-sm-11">
