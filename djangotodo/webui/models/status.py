@@ -7,4 +7,7 @@ class Status(models.Model):
     """
     Status for Task
     """
-    name = models.CharField('ステータス', mex_length=30, blank=False, default='未着手')
+    name = models.CharField('ステータス', max_length=30, blank=False)
+
+    def __str__(self):
+        return self.name

@@ -18,6 +18,7 @@ class Task(models.Model):
     # status = models.CharField('状態', max_length=20, default='未着手', blank=False)
     status = models.ForeignKey(Status)
 
+
     def create(name, memo):
         task = Task()
         task.name = name
