@@ -9,4 +9,5 @@ class Task(models.Model):
     startTime = models.DateTimeField()
     endTime = models.DateTimeField()
     memo = models.CharField(max_length=200)
+    status = models.CharField(max_length=20, default='Not started')
 
