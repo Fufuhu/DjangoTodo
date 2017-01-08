@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from webui.models.task import Task
+from webui.models.status import Status
 from webui.forms.task_form import TaskCreateForm
 
 class TodoView(View):
@@ -29,10 +30,12 @@ class TodoView(View):
         Create the new task.
         """
         # Insert the process to create task here.
-        print(str(request.POST['name']))
+        print(str(request.POST['status']))
         name = request.POST['name']
         memo = request.POST['memo']
-        task = Task.create(name, memo)
+        # status = request.POST['status']
+        status = Status.objects.get(id=request.POST['status'])
+        task = Task.create(name, memo, status)
         task.save()
 
         # 一覧表示用のデータを取得

@@ -1,8 +1,8 @@
 """
 Model for Task
 """
-from django.db import models
 from datetime import datetime
+from django.db import models
 from webui.models.status import Status
 
 
@@ -19,9 +19,14 @@ class Task(models.Model):
     status = models.ForeignKey(Status)
 
 
-    def create(name, memo):
+    def create(name, memo, status, startTime=datetime.now()):
+        """
+        Taskに名前、メモ、ステータスを指定して作成
+        """
         task = Task()
         task.name = name
         task.memo = memo
-        task.startTime = datetime.now()
+
+        task.startTime = startTime
+        task.status = status
         return task
