@@ -17,6 +17,11 @@ class TodoView(View):
         """
         tasks = Task.objects.all()
         return render(request, 'webui/todo.html', {'tasks': tasks})
+    
+    def post(self, request):
+        tasks = Task.objects.all()
+        # Insert the process to create task here.
+        return render(request, 'webui/todo.html', {'tasks': tasks})
 
 class TodoListView(View):
     """
