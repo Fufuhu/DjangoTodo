@@ -18,8 +18,9 @@ class TodoView(View):
         """
         tasks = Task.objects.all()
 
+        task = Task()
         # Taskを新規作成するためのフォームを追加
-        form = TaskCreateForm(instance=Task)
+        form = TaskCreateForm(instance=task)
         # return render(request, 'webui/todo.html', {'tasks': tasks})
         return render(request, 'webui/todo.html', dict(form=form, tasks=tasks))
 
