@@ -10,11 +10,16 @@ Todo List
 
 {% block content %}
 <h1>Todo List</h1>
-<thead><th></th><th></th><th></th></thead>
+<thead><th>タスク名</th><th>開始時刻</th><th>終了時刻</th><th>ステータス</th><th>メモ</th></thead>
 <table>
 {% for task in tasks %}
-
-{{ task.name }}
+<tr>
+    <td>{{ task.name }}</td>
+    <td>{{ task.startTime }}</td>
+    <td>{{ task.endTime }}</td>
+    <td>{{ task.status }}</td>
+    <td>{{ task.memo }}</td>
+</tr>
 {% endfor%}
 </table>
 {% endblock content %}
